@@ -1,0 +1,428 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style>
+*{
+	margin: 0;
+	padding: 0;
+}
+	.box{
+		width: 531px;
+		height: 387px;
+		border: 5px solid red;
+	}
+	.box.imgbox{
+		width: 531px;
+		height: 387px;
+		position: relative;
+	}
+	.zhezhao{
+		width: 541px;
+		height: 397px;
+		position: absolute;
+		left: 0;
+		top: 0;
+		background: rgba(0, 0, 0, 0.6);
+	}
+	.area{
+		width: 90px;
+		height: 90px;
+		background: red;
+		position: absolute;
+		left: 0;
+		top: 0;
+	}
+</style>
+<body>
+<div class="box">
+	<div class="imgbox">
+		<img src="img/picture9.jpg" alt="" width="420"
+		height="350">
+	</div>
+<div class="area"></div>
+<div class="zhezhao"></div>
+
+</div>	
+</body>
+<script>
+	let box = document.querySelector(".box");
+	let area = document.querySelector(".area");
+	let div=document.createElement("div")
+	box.onmouseenter=function(){
+		area.style=`display:block`;
+	}
+	box.onmouseleave=function(){
+		area.style= `display:none`;
+	}
+	box.onmousemove=function(e){
+		let x=e.offsetX-45;
+		let y=e.offsetY-45;
+		
+		if (x<=0) {
+			x=0;
+		}else if(x>=441){
+			x=441;
+		}
+		if (y<=0){
+			y=0;
+		}else if(y>=297){
+			y=297;
+		}
+		area.style=`left:${x}px;top:${y}px`;
+		console.log(x,y);
+		div.style=`width: 200px;
+		height: 200px;
+		background: url('img/picture9.jpg') no-repeat ${-e.offsetX}px ${-e.offsetY}px;
+		position: absolute;
+		left: ${x+70}px;
+		top: ${y+70}px;`
+		box.appendChild(div)
+	}
+
+
+		
+</script>
+</html> -->
+
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style>
+	.box{
+		width: 300px;
+		height: 300px;
+		border: 3px solid red;
+		display: none;
+		position: fixed;
+		top: 0;
+		left: 0;
+	}
+</style>
+<body>
+<div class="box">
+	<div><a href="http://www.baidu.com">百度</a></div>
+</div>
+	
+</body>
+<script>
+	let box = document.querySelector(".box");
+	document.oncontextmenu=function(event){
+		event.preventDefault();
+		box.style=`top:${event.clientY}px;left:${event.clientX}px;display:block`;
+	}
+	let a = document.querySelector("a");
+	a.onclick=function(event){
+         event.preventDefault();
+	}
+</script>
+</html> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style>
+	.box{
+		width: 300px;
+		height: 300px;
+		border: 3px solid red;
+	}
+	.son{
+		width:50px;height:50px;
+		background:orange;float:left; border:1px solid blue;
+	}
+</style>
+<body>
+<div class="box">
+	<div class="son"></div>
+	<div class="son"></div>
+	<div class="son"></div>
+</div>
+<button>点击</button>
+	
+</body>
+<script>
+	let box = document.querySelector(".box");
+	let btn = document.querySelector("button");
+	let sons = document.querySelectorAll(".son");
+	btn.onclick=function(){
+		let son=document.createElement("div");
+		son.style=`width:${50}px;height:${50}px;
+		background:orange;float:left; border:1px solid blue;`;
+		box.appendChild(son);
+		sons = document.querySelectorAll("son");
+		console.log(sons)
+	}
+	sons.forEach((item)=>{
+		item.onclick=function(){
+			item.style.background="yellow";
+
+		}
+	})
+
+</script>
+</html> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>电子表</title>
+</head>
+<style>
+	.clock{
+		width: 300px;
+		height: 350px;
+		border: 3px solid red;
+		text-align: center;
+		line-height: 350px;
+	}
+
+</style>
+<body>
+<div class="clock">
+	<span class="qwe">18</span>时
+	<span class="asd">41</span>分
+	<span class="zxc">00</span>秒
+</div>
+	
+</body>
+<script>
+	let h =document.querySelector(".qwe");
+	let m =document.querySelector(".asd");
+	let s =document.querySelector(".zxc");
+	let clock = document.querySelector(".clock");
+	function fn(){
+		let r,g,b;
+		r=parseInt(Math.random()*255);
+		g=parseInt(Math.random()*255);
+		b=parseInt(Math.random()*255);
+		console.log(r,g,b);
+		let now=new Date();
+		let sdate=now.getSeconds();
+		let mdate=now.getMinutes();
+		let hdate=now.getHours();
+		h.innerText=hdate;
+		m.innerText=mdate;
+		s.innerText=sdate;	
+		clock.style=`background-color:rgb(${r},${g},${b})`
+	}
+		setInterval(fn,100);
+
+
+</script>
+</html>
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>圆表</title>
+</head>
+<style>
+*{
+padding: 0;
+margin: 0;
+}
+#clock{
+width: 200px;
+height: 200px;
+border: 2px solid black;
+border-radius: 100px;
+position: absolute;
+margin-left: 20px;
+margin-top:20px;
+}
+#a12{
+position: absolute;
+top:0;
+left:90px;
+}
+#a6{
+position: absolute;
+top:180px;
+left:90px;
+}
+#a3{
+position: absolute;
+top:90px;
+left:180px;
+}
+#a9{
+position: absolute;
+top:90px;
+left:0px;
+}
+#a1{
+position: absolute;
+top:10px;
+left:145px;
+}
+#a2{
+position: absolute;
+top:45px;
+left:175px;
+}
+#a5{
+position: absolute;
+top:165px;
+left:145px;
+}
+#a4{
+position: absolute;
+top:135px;
+left:170px;
+}
+#a11{
+position: absolute;
+top:10px;
+left:45px;
+}
+#a10{
+position: absolute;
+top:45px;
+left:15px;
+}
+#a8{
+position: absolute;
+top:135px;
+left:15px;
+}
+#a7{
+position: absolute;
+top:170px;
+left:45px;
+}
+#h{
+width:7px;
+height: 50px;
+background-color: #37639C;
+position: absolute;
+border-radius: 6px;
+left: 97px;
+top: 50px;
+}
+#m{
+width:5px;
+height: 65px;
+background-color: #37639C;
+position: absolute;
+top: 35px;
+left: 98px;
+border-radius: 4px;
+}
+#s{
+width:3px;
+height: 70px;
+background-color: #37639C;
+position: absolute;
+top: 25px;
+left: 99px;
+border-radius: 2px;
+}
+#s,#m,#h{
+transform-origin: center bottom;
+}
+	
+</style>
+<body>
+<div id="clock">
+<div id="h"></div>
+<div id="m"></div>
+<div id="s"></div>
+<div id="a1">1</div>
+<div id="a2">2</div>
+<div id="a3">3</div>
+<div id="a4">4</div>
+<div id="a5">5</div>
+<div id="a6">6</div>
+<div id="a7">7</div>
+<div id="a8">8</div>
+<div id="a9">9</div>
+<div id="a10">10</div>
+<div id="a11">11</div>
+<div id="a12">12</div>
+</div>	
+</body>
+<script>
+let divS=document.querySelector("#s");
+let divM=document.querySelector("#m");
+let divH=document.querySelector("#h");
+function fn(){
+let now=new Date();//当前日期
+let s=now.getSeconds();
+let sDeg=s/60*360;
+let m=now.getMinutes();
+let mDeg=(m*60+s)/3600*360;
+let h=now.getHours();
+let hDeg=(h*3600+m*60+s)/(3600*12)*360;
+let r,g,b;
+    r=parseInt(Math.random()*255);
+	g=parseInt(Math.random()*255);
+	b=parseInt(Math.random()*255);
+divS.style.transform=`rotate(${sDeg}deg)`;
+divM.style.transform=`rotate(${mDeg}deg)`;
+divH.style.transform=`rotate(${hDeg}deg)`;
+}
+fn();
+setInterval(fn,1000);
+</script>
+</html>
